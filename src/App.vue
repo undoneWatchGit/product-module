@@ -77,7 +77,9 @@ export default {
         const { data } = await axios.get(
             'http://localhost:8080/api/module/new-line'
         )
-        this.selectedModules = data.modules
+        if (data.modules) {
+          this.selectedModules = data.modules
+        }
     },
 }
 </script>
