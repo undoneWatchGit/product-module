@@ -24,6 +24,12 @@ import axios from 'axios'
 import libs from './components/libs'
 import Section from './components/Section'
 export default {
+    props: {
+      slug: {
+        type: String,
+        default: 'new-line'
+      }
+    },
     data() {
         return {
             selectedModules: [],
@@ -45,8 +51,8 @@ export default {
     methods: {
       async save() {
         try {
-          await axios.put('http://localhost:8080/api/module/new-line', {
-            slug: 'new-line',
+          await axios.put(`http://localhost:8080/api/module/${this.slug}`, {
+            slug: this.slug,
             modules: this.selectedModules.map((module,arrange) => ({
               ...module,
               arrange
@@ -75,7 +81,7 @@ export default {
     },
     async mounted() {
         const { data } = await axios.get(
-            'http://localhost:8080/api/module/new-line'
+            'http://localhost:8080/api/module/' + this.slug
         )
         if (data.modules) {
           this.selectedModules = data.modules
