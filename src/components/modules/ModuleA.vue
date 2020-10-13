@@ -33,7 +33,9 @@ export default {
     methods: {
         update(e, path, type) {
             set(this.value, path, e.target.value)
-            set(this.value, head(path.split('.')) + '.type', type)
+            const index = head(path.split('.'))
+            set(this.value, index + '.type', type)
+            set(this.value, index + '.position', +index + 1)
             this.$emit('input', this.value)
         }
     }
