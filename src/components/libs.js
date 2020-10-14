@@ -1,17 +1,17 @@
 export default [
     {
         name: 'ModuleA',
-        url: 'http://a.js',
+        url: process.env.VUE_APP_MODULEA || 'http://a.js',
         mirror: false
     },
     {
         name: 'ModuleB',
-        url: 'http://b.js',
+        url: process.env.VUE_APP_MODULEB || 'http://b.js',
         mirror: false
     },
     {
         name: 'ModuleC',
-        url: 'http://c.js',
+        url: process.env.VUE_APP_MODULEC || 'http://c.js',
         mirror: false
     }
 ]

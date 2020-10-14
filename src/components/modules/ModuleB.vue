@@ -40,12 +40,25 @@
             position 3
             <div class="flex items-center">
                 <label for="" class="w-48">
-                    Primary image
+                    Primary text
                 </label>
                 <input
                     type="text"
                     :value="get(value, '2.primary')"
-                    @input="(e) => onInput(e, '2.primary', 'image')"
+                    @input="(e) => onInput(e, '2.primary', 'text')"
+                />
+            </div>
+        </div>
+        <div class="my-3 grid grid-col gap-2">
+            position 4
+            <div class="flex items-center">
+                <label for="" class="w-48">
+                    Primary image
+                </label>
+                <input
+                    type="text"
+                    :value="get(value, '3.primary')"
+                    @input="(e) => onInput(e, '3.primary', 'image')"
                 />
             </div>
             <div class="flex items-center">
@@ -54,21 +67,21 @@
                 </label>
                 <input
                     type="text"
-                    :value="get(value, '2.secondary')"
-                    @input="(e) => onInput(e, '2.secondary', 'image')"
+                    :value="get(value, '3.secondary')"
+                    @input="(e) => onInput(e, '3.secondary', 'image')"
                 />
             </div>
         </div>
         <div class="my-3 grid grid-col gap-2">
-            position 4
+            position 5
             <div class="flex items-center">
                 <label for="" class="w-48">
                     Primary text
                 </label>
                 <input
                     type="text"
-                    :value="get(value, '3.primary')"
-                    @input="(e) => onInput(e, '3.primary', 'text')"
+                    :value="get(value, '4.primary')"
+                    @input="(e) => onInput(e, '4.primary', 'text')"
                 />
             </div>
         </div>

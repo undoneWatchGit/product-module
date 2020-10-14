@@ -17,6 +17,19 @@
                 </div>
             </div>
         </div>
+        <div class="my-3 grid grid-col gap-2">
+            position 4
+            <div class="flex items-center">
+                <label for="" class="w-48">
+                    Primary text
+                </label>
+                <input
+                    type="text"
+                    :value="get(value[3], 'primary')"
+                    @input="(e) => update(e, '3.primary', 'text')"
+                />
+            </div>
+        </div>
     </div>
 </template>
 <script>
