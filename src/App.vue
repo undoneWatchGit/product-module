@@ -77,7 +77,6 @@ export default {
       },
       remove(index) {
         this.selectedModules.splice(index, 1)
-        this.save()
       }
     },
     computed: {
