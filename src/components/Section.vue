@@ -29,13 +29,15 @@ import find from 'lodash/find'
 import ModuleA from './modules/ModuleA'
 import ModuleB from './modules/ModuleB'
 import ModuleC from './modules/ModuleC'
+import ModuleD from './modules/ModuleD'
 import libs from './libs'
 export default {
     props: ['module', 'options'],
     components: {
         ModuleA,
         ModuleB,
-        ModuleC
+        ModuleC,
+        ModuleD
     },
     watch: {
         'module.name'(e) {

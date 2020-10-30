@@ -13,5 +13,10 @@ export default [
         name: 'ModuleC',
         url: process.env.VUE_APP_MODULEC || 'http://c.js',
         mirror: false
+    },
+    {
+        name: 'ModuleD',
+        url: process.env.VUE_APP_MODULED || 'https://api.undone.com/lib/modules/dist/module4.js',
+        mirror: false
     }
 ]
