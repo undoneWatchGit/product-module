@@ -2,7 +2,7 @@
 import get from 'lodash/get'
 import set from 'lodash/set'
 import head from 'lodash/head'
-import ModuleField from '@/components/ModuleField.vue'
+import ModuleField from '../components/ModuleField.vue'
 export default {
     components: {
         ModuleField

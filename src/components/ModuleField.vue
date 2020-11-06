@@ -14,7 +14,7 @@
     </div>
 </template>
 <script>
-import Content from '@/components/Content.vue'
+import Content from './Content.vue'
 import get from 'lodash/get'
 export default {
     components: {
