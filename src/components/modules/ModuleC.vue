@@ -66,7 +66,7 @@
     </div>
 </template>
 <script>
-import contentMixin from '@/mixins/contentMixin.vue'
+import contentMixin from '../../mixins/contentMixin.vue'
 export default {
     mixins: [contentMixin]
 }
