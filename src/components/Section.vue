@@ -18,7 +18,7 @@
                 />
             </div>
             <div>
-                <component :is="module.name" v-model="module.data" />
+                <component :is="module.name" v-model="moduleData" />
             </div>
         </div>
     </div>
@@ -38,6 +38,11 @@ export default {
         ModuleB,
         ModuleC,
         ModuleD
+    },
+    data() {
+        return {
+            moduleData: this.module.data
+        }
     },
     watch: {
         'module.name'(e) {

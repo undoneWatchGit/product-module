@@ -2,110 +2,79 @@
     <div>
         <div class="my-3 grid grid-col gap-2">
             position 1
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary text
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '0.primary')"
-                    @input="(e) => onInput(e, '0.primary', 'text')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="0"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
         <div class="my-3 grid grid-col gap-2">
             position 2
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary image
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '1.primary')"
-                    @input="(e) => onInput(e, '1.primary', 'image')"
-                />
-            </div>
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    secondary image
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '1.secondary')"
-                    @input="(e) => onInput(e, '1.secondary', 'image')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="1"
+                type="image"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
+            <ModuleField
+                :contents="contents"
+                :index="1"
+                level="secondary"
+                type="image"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
         <div class="my-3 grid grid-col gap-2">
             position 3
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary text
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '2.primary')"
-                    @input="(e) => onInput(e, '2.primary', 'text')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="2"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
         <div class="my-3 grid grid-col gap-2">
             position 4
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary image
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '3.primary')"
-                    @input="(e) => onInput(e, '3.primary', 'image')"
-                />
-            </div>
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    secondary image
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '3.secondary')"
-                    @input="(e) => onInput(e, '3.secondary', 'image')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="3"
+                type="image"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
+            <ModuleField
+                :contents="contents"
+                :index="3"
+                level="secondary"
+                type="image"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
         <div class="my-3 grid grid-col gap-2">
             position 5
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary text
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '4.primary')"
-                    @input="(e) => onInput(e, '4.primary', 'text')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="4"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
     </div>
 </template>
 <script>
-import get from 'lodash/get'
-import set from 'lodash/set'
-import head from 'lodash/head'
+import contentMixin from '@/mixins/contentMixin.vue'
 export default {
-    props: ['value'],
-    data() {
-        return {
-            get,
-        }
-    },
-    methods: {
-        onInput(e, path, type) {
-            const value = e.target.value
-            set(this.value, path, value)
-            const index = head(path.split('.'))
-            set(this.value, index + '.type', type)
-            set(this.value, index + '.position', +index + 1)
-        },
-    },
+    mixins: [contentMixin]
 }
 </script>

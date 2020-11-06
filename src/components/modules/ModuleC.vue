@@ -7,97 +7,67 @@
         >
             <template v-if="item !== 2">
                 position {{ item }}
-                <div class="flex items-center">
-                    <label for="" class="w-48">
-                        Primary image
-                    </label>
-                    <input
-                        type="text"
-                        :value="get(value, `${index}.primary`)"
-                        @input="(e) => onInput(e, `${index}.primary`, 'image')"
-                    />
-                </div>
-                <div class="flex items-center">
-                    <label for="" class="w-48">
-                        Secondary image
-                    </label>
-                    <input
-                        type="text"
-                        :value="get(value, `${index}.secondary`)"
-                        @input="(e) => onInput(e, `${index}.secondary`, 'image')"
-                    />
-                </div>
+                <ModuleField
+                    :contents="contents"
+                    :index="index"
+                    type="image"
+                    @update="update"
+                    @remove="remove"
+                    @add-content="addContent"
+                />
+                <ModuleField
+                    :contents="contents"
+                    :index="index"
+                    level="secondary"
+                    type="image"
+                    @update="update"
+                    @remove="remove"
+                    @add-content="addContent"
+                />
             </template>
             <template v-else>
                 <div>
                     Postion {{ item }}
                 </div>
 
-                <div class="flex items-center">
-                    <label for="" class="w-48">
-                        Primary text
-                    </label>
-                    <input
-                        type="text"
-                        :value="get(value, `${index}.primary`)"
-                        @input="(e) => onInput(e, `${index}.primary`, 'text')"
-                    />
-                </div>
+                <ModuleField
+                    :contents="contents"
+                    :index="index"
+                    @update="update"
+                    @remove="remove"
+                    @add-content="addContent"
+                />
             </template>
         </div>
         <div>
             <div>
                 Postion 5
             </div>
-
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary text
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '4.primary')"
-                    @input="(e) => onInput(e, '4.primary', 'text')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="4"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
         <div>
             <div>
                 Postion 6
             </div>
-
-            <div class="flex items-center">
-                <label for="" class="w-48">
-                    Primary text
-                </label>
-                <input
-                    type="text"
-                    :value="get(value, '5.primary')"
-                    @input="(e) => onInput(e, '5.primary', 'text')"
-                />
-            </div>
+            <ModuleField
+                :contents="contents"
+                :index="5"
+                @update="update"
+                @remove="remove"
+                @add-content="addContent"
+            />
         </div>
     </div>
 </template>
 <script>
-import get from 'lodash/get'
-import set from 'lodash/set'
-import head from 'lodash/head'
+import contentMixin from '@/mixins/contentMixin.vue'
 export default {
-    props: ['value'],
-    data() {
-        return {
-            get,
-        }
-    },
-    methods: {
-        onInput(e, path, type) {
-            const value = e.target.value
-            set(this.value, path, value)
-            const index = head(path.split('.'))
-            set(this.value, index + '.type', type)
-            set(this.value, index + '.position', +index + 1)
-        },
-    },
+    mixins: [contentMixin]
 }
 </script>

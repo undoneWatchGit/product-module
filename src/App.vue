@@ -1,12 +1,12 @@
 <template>
-    <div class="product-module">
+    <div class="product-module SctoGroteskA">
       <div class="mx-auto w-full md:w-9/12 p-4">
         <div v-if="updateSuccess" class="fixed w-full bg-green-400 top-0 left-0 py-4 text-center">
           update success
         </div>
         <template v-if="selectedModules.length">
           <div v-for="(module, index) in selectedModules" :key="index" class="border my-4 p-4">
-            <Section :module="module" :options="options" @updateUrl="e => updateModuleUrl(e, index)"/>
+            <Section :module="module" :options="options" @updateUrl="e => updateModuleUrl(e, index)" />
             <button class="border py-2 px-4 bg-red-400 text-white" @click="remove(index)">remove</button>
           </div>
           <button class="border py-2 px-4 bg-green-500 text-white uppercase" @click="save">save</button>
@@ -30,7 +30,7 @@ export default {
     props: {
       slug: {
         type: String,
-        default: 'new-line'
+        default: 'topawards'
       }
     },
     data() {
