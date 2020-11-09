@@ -2,7 +2,7 @@
     <div class="flex flex-wrap items-center">
         <label for="" class="w-48 capitalize" >
             {{ label ? label : `${level} ${type}` }}
-            <button @click="addContent(index, level)">+</button>
+            <button class="inline-block px-2 bg-yellow-100 rounded-sm" @click="addContent(index, level)">+</button>
         </label>
         <Content
             v-for="(item, i) in get(contentData, `${index}.${level}`, [])"
