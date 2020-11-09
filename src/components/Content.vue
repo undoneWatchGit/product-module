@@ -1,6 +1,6 @@
 <template>
     <div class="w-full border-2 border-grey p-2 mb-4 rounded-sm">
-        <button @click="remove" class="bg-red-500 px-2 rounded-sm text-white ml-auto mb-2">x</button>
+        <button @click="remove" class="bg-red-400 px-2 rounded-sm text-white ml-auto mb-2">x</button>
         <div class="flex flex-wrap w-full mb-2">
             <div class="w-1/5 block" >
                 Lang
