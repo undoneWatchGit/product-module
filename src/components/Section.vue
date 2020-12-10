@@ -1,14 +1,14 @@
 <template>
     <div>
-        <select name="" id="" v-model="module.name" class="w-64 py-2">
+        <select name="" id="" v-model="module.name" class="w-64 py-2 my-2">
             <option v-for="item in options" :key="item" :value="item">
                 {{ item }}
             </option>
         </select>
         <div>
-            <div>
+            <div class="my-2">
                 <label for="is-mirror">
-                    Is Mirror
+                    Mirror Layout
                 </label>
                 <input
                     type="checkbox"
@@ -17,8 +17,8 @@
                     id="is-mirror"
                 />
             </div>
-            <div>
-                <component :is="module.name" v-model="moduleData" />
+            <div class="my-2">
+                <component :is="module.name" v-model="moduleData" :isMirror="module.mirror"  />
             </div>
         </div>
     </div>

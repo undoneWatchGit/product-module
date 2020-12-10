@@ -1,15 +1,17 @@
 <template>
     <div class="flex flex-wrap items-center">
-        <label for="" class="w-48 capitalize mb-2" >
+        <label for="" class="flex w-full capitalize mb-2" >
             {{ label ? label : `${level} ${type}` }}
-            <button class="inline-block px-2 bg-yellow-100 rounded-sm" @click="addContent(index, level)">+</button>
+            <button class="inline-block mx-2 px-2 bg-yellow-100 rounded-sm" @click="addContent(index, level)">+</button>
         </label>
         <Content
             v-for="(item, i) in get(contentData, `${index}.${level}`, [])"
             :key="`${level}-content-${i}`"
             :content="item"
+            :itemType="type"
             @update="e => update(e, `${index}.${level}`, type, i)"
             @remove="remove(index, level, i)"
+            @upload-image="updateImage"
         />
     </div>
 </template>
@@ -72,6 +74,10 @@ export default {
             const path = `${index}.${level}`
             this.$emit('add-content', path)
             this.$forceUpdate()
+        },
+        updateImage(data) {
+            console.log(data)
+            this.$emit('show-image', data)
         }
     }
 }

@@ -7,12 +7,12 @@
         <template v-if="selectedModules.length">
           <div v-for="(module, index) in selectedModules" :key="index" class="border my-4 p-4">
             <Section :module="module" :options="options" @updateUrl="e => updateModuleUrl(e, index)" />
-            <button class="border py-2 px-4 bg-red-400 text-white" @click="remove(index)">remove</button>
+            <button class="border py-2 px-4 bg-red-400 text-white mt-4 uppercase" @click="remove(index)">Remove Section</button>
           </div>
-          <button class="border py-2 px-4 bg-green-500 text-white uppercase" @click="save">save</button>
+          <button class="border py-2 px-4 bg-green-500 text-white uppercase" @click="save">Save Section</button>
         </template>
         <div class="my-2">
-          <button class="border px-2 bg-blue-400 uppercase" @click="newModule">new</button>
+          <button class="border py-2 px-2 bg-blue-400 uppercase" @click="newModule">New Section</button>
         </div>
       </div>
     </div>
@@ -22,6 +22,7 @@ import set from 'lodash/set'
 import find from 'lodash/find'
 import map from 'lodash/map'
 import head from 'lodash/head'
+import get from 'lodash/get'
 import axios from 'axios'
 import libs from './components/libs'
 import Section from './components/Section'
@@ -52,21 +53,36 @@ export default {
         Section
     },
     methods: {
-      async save() {
-        try {
-          const modules = this.selectedModules.map((module,arrange) => ({
+      // async save() {
+      //   try {
+      //     const modules = this.selectedModules.map((module,arrange) => ({
+      //       ...module,
+      //       arrange
+      //     }))
+      //     await axios.put(`${process.env.VUE_APP_MONGO_API}/api/module/${this.slug}`, {
+      //       slug: this.slug,
+      //       modules: modules
+      //     })
+      //     this.updateSuccess = true
+      //     this.$emit('update', modules)
+      //   } catch (error) {
+      //     console.log(error)
+      //   }
+      // },
+      save() {
+        console.log('module raw', this.selectedModules)
+        // if (this.selectedModules.length) {
+        //   this.selectedModules.filter(item => item.)
+        // }
+        const imgData = this.selectedModules.map((item) => ({
+          img: (item.data).filter(item => item.type === 'image')
+        }))
+        console.log(imgData)
+        const modules = this.selectedModules.map((module,arrange) => ({
             ...module,
             arrange
           }))
-          await axios.put(`${process.env.VUE_APP_MONGO_API}/api/module/${this.slug}`, {
-            slug: this.slug,
-            modules: modules
-          })
-          this.updateSuccess = true
-          this.$emit('update', modules)
-        } catch (error) {
-          console.log(error)
-        }
+        console.log('module', modules)
       },
       newModule() {
         const firstModule = head(libs)

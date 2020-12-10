@@ -26,11 +26,14 @@ export default {
             this.$emit('input', this.contents)
         },
         addContent(path) {
+            console.log(path)
             const data = [
                 ...get(this.contents, path, []),
                 {
                     lang: '',
-                    body: ''
+                    body: '',
+                    alt: '',
+                    file: ''
                 }
             ]
             set(this.contents, path, data)
