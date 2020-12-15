@@ -39,7 +39,7 @@
             label-idle="Drop files here..."
             v-bind:allow-multiple="false"
             accepted-file-types="image/jpeg, image/png"
-            :server="{ process, revert,  restore, load, fetch }"
+            :server="{ process, revert, restore, load, fetch }"
             v-bind:files="myFiles"
             v-on:init="handleFilePondInit"/>
         </div>
@@ -78,7 +78,8 @@ export default {
         return {
             get,
             contentValue: this.content,
-            myFiles: []
+            myFiles: [],
+            apiHost: process.env.VUE_APP_API
         }
     },
     methods: {
@@ -104,48 +105,55 @@ export default {
             this.$emit('update', this.contentValue)
             console.log('uploadfile', this.contentValue)
         },
-         handleFilePondInit: function() {
+        handleFilePondInit: function() {
             console.log('FilePond has initialized');
 
             // FilePond instance methods are available on `this.$refs.pond`
         },
-        async process(fieldName, file, metadata, load, error, progress, abort, transfer, options) {
+        process(fieldName, file, metadata, load, error, progress, abort, transfer, options) {
             console.log('start process')
             console.log('fieldname', fieldName)
-            console.log('file', file)
-            console.log('file.name', file.name)
+            
+            
             // fieldName is the name of the input field
             // file is the actual file object to send
             const formData = new FormData();
             formData.append('parent_id', '0')
-            formData.append(fieldName, file, file.name);
+            formData.append('file', file, file.name)
             formData.append('created_by', '0')
-            console.log('created formdata')
 
             const request = new XMLHttpRequest();
-            await request.open('POST', `${process.env.VUE_APP_API}/api/file-update`, true);
-
+            request.withCredentials = true;
+            request.open('POST', `${process.env.VUE_APP_API}/api/file-update`)
+            
+            // request.setRequestHeader('Access-Control-Allow-Origin: *')
+            // request.setRequestHeader('Access-Control-Allow-Methods: OPTIONS, GET, DELETE, POST')
+            request.send(formData);
+            
             // Should call the progress method to update the progress to 100% before calling load
             // Setting computable to false switches the loading indicator to infinite mode
             request.upload.onprogress = (e) => {
+                console.log(e)
                 progress(e.lengthComputable, e.loaded, e.total);
             };
-
             // Should call the load method when done and pass the returned server file id
             // this server file id is then used later on when reverting or restoring a file
             // so your server knows which file to return without exposing that info to the client
+            console.log('request status', request.status)
+            console.log('request ready state', request.readyState)
             request.onload = function() {
+                
                 if (request.status >= 200 && request.status < 300) {
                     // the load method accepts either a string (id) or an object
-                    load(request.responseText);
+                    console.log('ok')
+                    this.load(request.responseText);
                 }
                 else {
                     // Can call the error method if something is wrong, should exit after
-                    error('oh no');
+                    console.log('oh no');
                 }
             };
 
-            request.send(formData);
             
             // Should expose an abort method so the request can be cancelled
             return {
