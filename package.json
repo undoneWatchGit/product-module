@@ -10,10 +10,13 @@
     "add": "^2.0.6",
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
+    "filepond": "^4.24.0",
+    "filepond-plugin-image-preview": "^4.6.4",
     "lodash": "^4.17.20",
     "tailwindcss": "^1.8.12",
     "uuid": "^8.3.2",
     "vue": "^2.6.11",
+    "vue-filepond": "^6.0.3",
     "yarn": "^1.22.10"
   },
   "devDependencies": {

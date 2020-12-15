@@ -5,11 +5,14 @@
           update success
         </div>
         <template v-if="selectedModules.length">
-          <div v-for="(module, index) in selectedModules" :key="index" class="border my-4 p-4">
+          <div v-for="(module, index) in selectedModules" :key="index" class="border my-4">
             <Section :module="module" :options="options" @updateUrl="e => updateModuleUrl(e, index)" />
-            <button class="border py-2 px-4 bg-red-400 text-white mt-4 uppercase" @click="remove(index)">Remove Section</button>
+              <div class="flex">
+                <button class="border py-2 px-4 bg-green-500 text-white mt-4 uppercase" @click="save">Save Section</button>
+                <div class="w-10 h-full"></div>
+                <button class="border py-2 px-4 bg-red-400 text-white mt-4 uppercase" @click="remove(index)">Remove Section</button>
+              </div>
           </div>
-          <button class="border py-2 px-4 bg-green-500 text-white uppercase" @click="save">Save Section</button>
         </template>
         <div class="my-2">
           <button class="border py-2 px-2 bg-blue-400 uppercase" @click="newModule">New Section</button>
@@ -76,13 +79,25 @@ export default {
         // }
         const imgData = this.selectedModules.map((item) => ({
           img: (item.data).filter(item => item.type === 'image')
+          // img: item.data
         }))
-        console.log(imgData)
+        console.log('imgdata', imgData)
+        this.uploadImage(imgData)
         const modules = this.selectedModules.map((module,arrange) => ({
             ...module,
             arrange
           }))
         console.log('module', modules)
+      },
+      async uploadImage(images) {
+        try {
+          const formData = new FormData()
+          formData.append('images', images)
+          console.log([...formData])
+          await axios.post(`${process.env.VUE_APP_API}/api/file-update`, formData, { headers: {'Content-Type': 'multipart/form-data' }})
+        } catch (error) {
+          console.error(error)
+        }
       },
       newModule() {
         const firstModule = head(libs)

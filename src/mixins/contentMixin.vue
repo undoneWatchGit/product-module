@@ -26,7 +26,7 @@ export default {
             this.$emit('input', this.contents)
         },
         addContent(path) {
-            console.log(path)
+            // console.log(path)
             const data = [
                 ...get(this.contents, path, []),
                 {

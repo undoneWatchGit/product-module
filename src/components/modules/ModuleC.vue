@@ -41,36 +41,42 @@
         </div> -->
         <div class="w-full flex flex-col justify-between" style="background: #ededed; min-height: 300px;">
             <div class="" >
-                position 1
-                <ModuleField
-                    :contents="contents"
-                    :index="0"
-                    type="image"
-                    @update="update"
-                    @remove="remove"
-                    @add-content="addContent"
-                    @show-image="updateImageAD"
-                />
-                <div class="w-full">
-                    <img :src="imagePreviews.a.desktop" alt="" style="max-width: 100%;">
+                <!-- position 1 -->
+                <div class="flex">
+                    <ModuleField
+                        class="w-2/5"
+                        :contents="contents"
+                        :index="0"
+                        type="image"
+                        @update="update"
+                        @remove="remove"
+                        @add-content="addContent"
+                        @show-image="updateImageAD"
+                    />
+                    <div class="w-3/5">
+                        <img :src="imagePreviews.a.desktop" alt="" style="max-width: 100%;">
+                    </div>
                 </div>
-                <ModuleField
-                    :contents="contents"
-                    :index="0"
-                    level="secondary"
-                    type="image"
-                    @update="update"
-                    @remove="remove"
-                    @add-content="addContent"
-                    @show-image="updateImageAM"
-                />
-                <div class="w-full">
-                    <img :src="imagePreviews.a.mobile" alt="" style="max-width: 100%;">
+                <div class="flex">
+                    <ModuleField
+                    class="w-2/5"
+                        :contents="contents"
+                        :index="0"
+                        level="secondary"
+                        type="image"
+                        @update="update"
+                        @remove="remove"
+                        @add-content="addContent"
+                        @show-image="updateImageAM"
+                    />
+                    <div class="w-3/5">
+                        <img :src="imagePreviews.a.mobile" alt="" style="max-width: 100%;">
+                    </div>   
                 </div>
             </div>
             <div class=" ">
                 <div>
-                    Postion 2
+                    <!-- Postion 2 -->
                 </div>
                 <ModuleField
                     :contents="contents"
@@ -84,36 +90,42 @@
         <div class="w-full h-4"></div>
         <div class="w-full flex">
             <div class="w-1/2 " :class="isMirror ? 'order-2 ml-2': 'order-1 mr-2'">
-                <div class="mb-4" style="background: #ededed">
-                    position 3
-                    <ModuleField
-                        :contents="contents"
-                        :index="2"
-                        type="image"
-                        @update="update"
-                        @remove="remove"
-                        @add-content="addContent"
-                        @show-image="updateImageBD"
-                    />
-                    <div class="w-full">
-                        <img :src="imagePreviews.b.desktop" alt="" style="max-width: 100%;">
+                <div class="mb-4" style="background: #ededed;min-height: 200px;">
+                    <!-- position 3 -->
+                    <div class="flex">
+                        <ModuleField
+                            class="w-1/2"
+                            :contents="contents"
+                            :index="2"
+                            type="image"
+                            @update="update"
+                            @remove="remove"
+                            @add-content="addContent"
+                            @show-image="updateImageBD"
+                        />
+                        <div class="w-1/2">
+                            <img :src="imagePreviews.b.desktop" alt="" style="max-width: 100%;">
+                        </div>
                     </div>
-                    <ModuleField
-                        :contents="contents"
-                        :index="2"
-                        level="secondary"
-                        type="image"
-                        @update="update"
-                        @remove="remove"
-                        @add-content="addContent"
-                        @show-image="updateImageBM"
-                    />
-                    <div class="w-full">
-                        <img :src="imagePreviews.b.mobile" alt="" style="max-width: 100%;">
+                    <div class="flex">
+                        <ModuleField
+                            class="w-1/2"
+                            :contents="contents"
+                            :index="2"
+                            level="secondary"
+                            type="image"
+                            @update="update"
+                            @remove="remove"
+                            @add-content="addContent"
+                            @show-image="updateImageBM"
+                        />
+                        <div class="w-1/2">
+                            <img :src="imagePreviews.b.mobile" alt="" style="max-width: 100%;">
+                        </div>
                     </div>
                 </div>
                 <div>
-                    Postion 5
+                    <!-- Postion 5 -->
                     <ModuleField
                         :contents="contents"
                         :index="4"
@@ -124,37 +136,43 @@
                 </div>
             </div>   
             <div class="w-1/2" :class="isMirror ? 'order-1 mr-2': 'order-2 ml-2'">
-                <div class="mb-4" style="background: #ededed">
-                    position 4
-                    <ModuleField
-                        :contents="contents"
-                        :index="3"
-                        type="image"
-                        @update="update"
-                        @remove="remove"
-                        @add-content="addContent"
-                        @show-image="updateImageCD"
-                    />
-                    <div class="w-full">
-                        <img :src="imagePreviews.c.desktop" alt="" style="max-width: 100%;">
+                <div class="mb-4" style="background: #ededed;min-height: 200px;">
+                    <!-- position 4 -->
+                    <div class="flex">
+                        <ModuleField
+                            class="w-1/2"
+                            :contents="contents"
+                            :index="3"
+                            type="image"
+                            @update="update"
+                            @remove="remove"
+                            @add-content="addContent"
+                            @show-image="updateImageCD"
+                        />
+                        <div class="w-1/2">
+                            <img :src="imagePreviews.c.desktop" alt="" style="max-width: 100%;">
+                        </div>
                     </div>
-                    <ModuleField
-                        :contents="contents"
-                        :index="3"
-                        level="secondary"
-                        type="image"
-                        @update="update"
-                        @remove="remove"
-                        @add-content="addContent"
-                        @show-image="updateImageCM"
-                    />
-                    <div class="w-full">
-                        <img :src="imagePreviews.c.mobile" alt="" style="max-width: 100%;">
+                    <div class="flex">
+                        <ModuleField
+                            class="w-1/2"
+                            :contents="contents"
+                            :index="3"
+                            level="secondary"
+                            type="image"
+                            @update="update"
+                            @remove="remove"
+                            @add-content="addContent"
+                            @show-image="updateImageCM"
+                        />
+                        <div class="w-1/2">
+                            <img :src="imagePreviews.c.mobile" alt="" style="max-width: 100%;">
+                        </div>
                     </div>
                 </div>
                 <div>
                     <div>
-                        Postion 6
+                        <!-- Postion 6 -->
                     </div>
                     <ModuleField
                         :contents="contents"
