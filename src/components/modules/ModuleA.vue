@@ -5,7 +5,7 @@
                     <!-- Position 1 -->
                     <div class="flex">
                         <ModuleField
-                            class="w-1/2"
+                            class="w-full"
                             :contents="contentData"
                             :index="0"
                             type="image"
@@ -14,13 +14,13 @@
                             @add-content="addContent"
                             @show-image="updateImageAD"
                         />
-                        <div class="w-1/2">
+                        <!-- <div class="w-1/2">
                             <img :src="imagePreviews.a.desktop" alt="" style="max-width: 100%;">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="flex">
                         <ModuleField
-                            class="w-1/2"
+                            class="w-full"
                             :contents="contentData"
                             :index="0"
                             level="secondary"
@@ -30,9 +30,9 @@
                             @add-content="addContent"
                             @show-image="updateImageAM"
                         />
-                        <div class="w-1/2">
+                        <!-- <div class="w-1/2">
                             <img :src="imagePreviews.a.mobile" alt="" style="max-width: 100%;">
-                        </div>
+                        </div> -->
                     </div>
             </div>
             <div class="h-4 w-full"></div>
@@ -40,7 +40,7 @@
                 <!-- Position 2 -->
                 <div class="flex">
                     <ModuleField
-                        class="w-1/2"
+                        class="w-full"
                         :contents="contentData"
                         :index="1"
                         type="image"
@@ -49,13 +49,13 @@
                         @add-content="addContent"
                         @show-image="updateImageBD"
                     />
-                    <div class="w-1/2">
+                    <!-- <div class="w-1/2">
                         <img :src="imagePreviews.b.desktop" alt="" style="max-width: 100%;">
-                    </div>
+                    </div> -->
                 </div>
                 <div class="flex">
                     <ModuleField
-                        class="w-1/2"
+                        class="w-full"
                         :contents="contentData"
                         :index="1"
                         level="secondary"
@@ -65,9 +65,9 @@
                         @add-content="addContent"
                         @show-image="updateImageBM"
                     />
-                    <div class="w-1/2">
+                    <!-- <div class="w-1/2">
                         <img :src="imagePreviews.b.mobile" alt="" style="max-width: 100%;">
-                    </div>   
+                    </div>    -->
                 </div>
             </div> 
         </div>
@@ -77,7 +77,7 @@
                 <!-- Position 3 -->
                 <div class="flex">
                     <ModuleField
-                        class="w-1/2"
+                        class="w-full"
                         :contents="contentData"
                         :index="2"
                         type="image"
@@ -86,13 +86,13 @@
                         @add-content="addContent"
                         @show-image="updateImageCD"
                     />
-                    <div class="w-1/2">
+                    <!-- <div class="w-1/2">
                         <img :src="imagePreviews.c.desktop" alt="" style="max-width: 100%;">
-                    </div> 
+                    </div>  -->
                 </div>
                 <div class="flex">
                     <ModuleField
-                        class="w-1/2"
+                        class="w-full"
                         :contents="contentData"
                         :index="2"
                         level="secondary"
@@ -102,9 +102,9 @@
                         @add-content="addContent"
                         @show-image="updateImageCM"
                     />
-                    <div class="w-1/2">
+                    <!-- <div class="w-1/2">
                         <img :src="imagePreviews.c.mobile" alt="" style="max-width: 100%;">
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="border-2 border-black">

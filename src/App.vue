@@ -8,11 +8,10 @@
           <div v-for="(module, index) in selectedModules" :key="index" class="border my-4">
             <Section :module="module" :options="options" @updateUrl="e => updateModuleUrl(e, index)" />
               <div class="flex">
-                <button class="border py-2 px-4 bg-green-500 text-white mt-4 uppercase" @click="save">Save Section</button>
-                <div class="w-10 h-full"></div>
                 <button class="border py-2 px-4 bg-red-400 text-white mt-4 uppercase" @click="remove(index)">Remove Section</button>
               </div>
           </div>
+            <button class="border py-2 px-4 bg-green-500 text-white mt-4 uppercase" @click="save">Save Section</button>
         </template>
         <div class="my-2">
           <button class="border py-2 px-2 bg-blue-400 uppercase" @click="newModule">New Section</button>
