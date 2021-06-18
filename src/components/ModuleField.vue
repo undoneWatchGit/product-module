@@ -50,7 +50,6 @@ export default {
     },
     watch: {
         contents(val) {
-            console.log(val)
             this.contentData = val
         }
     },
